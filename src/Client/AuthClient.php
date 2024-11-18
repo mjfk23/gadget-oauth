@@ -23,13 +23,13 @@ class AuthClient
      * @param string $scope
      */
     public function __construct(
-        private Client $client,
-        private string $authUri,
-        private string $tokenUri,
-        private string $clientId,
-        private string $clientSecret,
-        private string $redirectUri,
-        private string $scope
+        protected Client $client,
+        protected string $authUri,
+        protected string $tokenUri,
+        protected string $clientId,
+        protected string $clientSecret,
+        protected string $redirectUri,
+        protected string $scope
     ) {
     }
 

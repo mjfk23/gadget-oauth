@@ -12,7 +12,6 @@ use Gadget\Oauth\Model\AuthResponse;
 use Gadget\Oauth\Model\PKCE;
 use Gadget\Oauth\Model\TokenRequest;
 use Gadget\Oauth\Model\TokenResponse;
-use Throwable;
 
 class AuthClient extends ApiClient
 {
@@ -76,7 +75,6 @@ class AuthClient extends ApiClient
      * @param string $clientSecret
      * @param string $refreshToken
      * @return TokenResponse
-     * @throws Throwable
      */
     public function refreshToken(
         string $tokenUri,
@@ -86,7 +84,7 @@ class AuthClient extends ApiClient
     ): TokenResponse {
         return $this->invoke(new TokenHandler(new TokenRequest(
             tokenUri: $tokenUri,
-            grantType: 'authorization_code',
+            grantType: 'refresh_token',
             clientId: $clientId,
             clientSecret: $clientSecret,
             refreshToken: $refreshToken

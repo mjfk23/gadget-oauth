@@ -21,7 +21,7 @@ class TokenResponse
             expiresIn: Cast::toInt($values['expires_in'] ?? 0),
             accessToken: Cast::toValueOrNull($values['access_token'] ?? null, Cast::toString(...)),
             idToken: Cast::toValueOrNull($values['id_token'] ?? null, Cast::toString(...)),
-            refreshToken: Cast::toValueOrNull($values['id_token'] ?? null, Cast::toString(...))
+            refreshToken: Cast::toValueOrNull($values['refresh_token'] ?? null, Cast::toString(...))
         );
     }
 

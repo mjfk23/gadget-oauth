@@ -12,6 +12,7 @@ use Gadget\Oauth\Model\AuthResponse;
 use Gadget\Oauth\Model\PKCE;
 use Gadget\Oauth\Model\TokenRequest;
 use Gadget\Oauth\Model\TokenResponse;
+use Throwable;
 
 class AuthClient extends ApiClient
 {
@@ -40,6 +41,15 @@ class AuthClient extends ApiClient
     }
 
 
+    /**
+     * @param string $tokenUri
+     * @param string $clientId
+     * @param string $clientSecret
+     * @param string $redirectUri
+     * @param string $code
+     * @param PKCE|null $pkce
+     * @return TokenResponse
+     */
     public function createToken(
         string $tokenUri,
         string $clientId,
@@ -60,6 +70,14 @@ class AuthClient extends ApiClient
     }
 
 
+    /**
+     * @param string $tokenUri
+     * @param string $clientId
+     * @param string $clientSecret
+     * @param string $refreshToken
+     * @return TokenResponse
+     * @throws Throwable
+     */
     public function refreshToken(
         string $tokenUri,
         string $clientId,

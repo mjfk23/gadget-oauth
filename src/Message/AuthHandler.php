@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Gadget\Oauth\Message;
 
 use Gadget\Http\Message\MessageHandler;
+use Gadget\Oauth\Exception\AuthException;
 use Gadget\Oauth\Model\AuthRequest;
 use Gadget\Oauth\Model\AuthResponse;
 use Psr\Http\Message\ServerRequestInterface;
@@ -47,7 +48,7 @@ class AuthHandler extends MessageHandler
                 ? ($response->getHeader('Location')[0] ?? null)
                 : null;
             if ($uri == null) {
-                throw new \RuntimeException();
+                throw new AuthException();
             }
 
             if (str_starts_with($uri, $this->authRequest->redirectUri)) {

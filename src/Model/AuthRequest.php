@@ -11,6 +11,7 @@ class AuthRequest
 
 
     /**
+     * @param string $authUri
      * @param string $responseType
      * @param string $clientId
      * @param string $redirectUri
@@ -23,6 +24,7 @@ class AuthRequest
      * @param string|null $prompt
      */
     public function __construct(
+        public string $authUri,
         public string $responseType,
         public string $clientId,
         public string $redirectUri,
@@ -38,5 +40,26 @@ class AuthRequest
         $this->nonce ??= $this->responseType === 'id_token'
             ? bin2hex(random_bytes(32))
             : null;
+    }
+
+
+    /**
+     * @return array<string,bool|float|int|string|null>
+     */
+    public function getQueryParams(): array
+    {
+        return [
+            'response_type' => $this->responseType,
+            'client_id' => $this->clientId,
+            'redirect_uri' => $this->redirectUri,
+            'scope' => $this->scope,
+            'state' => $this->state,
+            'code_challenge' => $this->pkce?->challenge,
+            'code_challenge_method' => $this->pkce?->mode,
+            'response_mode' => $this->responseMode,
+            'nonce' => $this->nonce,
+            'display' => $this->display,
+            'prompt' => $this->prompt
+        ];
     }
 }

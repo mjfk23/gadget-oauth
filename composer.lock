@@ -450,16 +450,16 @@
         },
         {
             "name": "mjfk23/gadget-http",
-            "version": "v1.0.8",
+            "version": "v1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mjfk23/gadget-http.git",
-                "reference": "c54353960b1d2e74fa71ba39e1d76cec0b6db914"
+                "reference": "2aafa6a23d1999235ed1cf77f317377b9e42bef3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mjfk23/gadget-http/zipball/c54353960b1d2e74fa71ba39e1d76cec0b6db914",
-                "reference": "c54353960b1d2e74fa71ba39e1d76cec0b6db914",
+                "url": "https://api.github.com/repos/mjfk23/gadget-http/zipball/2aafa6a23d1999235ed1cf77f317377b9e42bef3",
+                "reference": "2aafa6a23d1999235ed1cf77f317377b9e42bef3",
                 "shasum": ""
             },
             "require": {
@@ -510,7 +510,7 @@
                 "source": "https://github.com/mjfk23/gadget-http",
                 "wiki": "https://github.com/mjfk23/gadget-http/wiki"
             },
-            "time": "2024-11-18T14:48:31+00:00"
+            "time": "2024-11-20T15:43:19+00:00"
         },
         {
             "name": "php-http/discovery",

@@ -1,11 +1,3 @@
-parameters:
-  gadget.oauth.auth_uri: '%env(string:default::OAUTH_AUTH_URI)%'
-  gadget.oauth.token_uri: '%env(string:default::OAUTH_TOKEN_URI)%'
-  gadget.oauth.redirect_uri: '%env(string:default::OAUTH_REDIRECT_URI)%'
-  gadget.oauth.client_id: '%env(string:default::OAUTH_CLIENT_ID)%'
-  gadget.oauth.client_secret: '%env(string:default::OAUTH_CLIENT_SECRET)%'
-  gadget.oauth.scope: '%env(string:default::OAUTH_SCOPE)%'
-
 services:
   _defaults:
     autowire: true
@@ -17,12 +9,3 @@ services:
       - '../../../src/DependencyInjection/'
       - '../../../src/Entity/'
       - '../../../src/Kernel.php'
-
-  Gadget\Oauth\Client\AuthClient:
-    arguments:
-      $authUri: '%gadget.oauth.auth_uri%'
-      $tokenUri: '%gadget.oauth.token_uri%'
-      $clientId: '%gadget.oauth.client_id%'
-      $clientSecret: '%gadget.oauth.client_secret%'
-      $redirectUri: '%gadget.oauth.redirect_uri%'
-      $scope: '%gadget.oauth.scope%'

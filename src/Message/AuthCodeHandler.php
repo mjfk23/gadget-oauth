@@ -47,7 +47,7 @@ class AuthCodeHandler extends MessageHandler
         Client $client,
         ServerRequestInterface $request
     ): ResponseInterface {
-        $response = $client->sendRequest($request);
+        $response = parent::sendRequest($client, $request);
         $uri = ($response->getStatusCode() === 302)
             ? ($response->getHeader('Location')[0] ?? null)
             : null;

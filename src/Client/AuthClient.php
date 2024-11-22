@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace Gadget\Oauth\Client;
 
 use Gadget\Http\Client\ApiClient;
-use Gadget\Oauth\Message\AuthHandler;
+use Gadget\Oauth\Message\AuthCodeHandler;
 use Gadget\Oauth\Message\TokenHandler;
-use Gadget\Oauth\Model\AuthRequest;
-use Gadget\Oauth\Model\AuthResponse;
+use Gadget\Oauth\Model\AuthCode;
+use Gadget\Oauth\Model\AuthCodeRequest;
 use Gadget\Oauth\Model\PKCE;
+use Gadget\Oauth\Model\Token;
 use Gadget\Oauth\Model\TokenRequest;
 use Gadget\Oauth\Model\TokenResponse;
 
@@ -18,7 +19,7 @@ class AuthClient extends ApiClient
     /**
      * @param string|null $state
      * @param PKCE|null $pkce
-     * @return AuthResponse
+     * @return AuthCode
      */
     public function createAuthCode(
         string $authUri,
@@ -27,8 +28,8 @@ class AuthClient extends ApiClient
         string $scope,
         string|null $state = null,
         PKCE|null $pkce = null
-    ): AuthResponse {
-        return $this->invoke(new AuthHandler(new AuthRequest(
+    ): AuthCode {
+        return $this->invoke(new AuthCodeHandler(new AuthCodeRequest(
             authUri: $authUri,
             responseType: 'code',
             clientId: $clientId,
@@ -47,7 +48,7 @@ class AuthClient extends ApiClient
      * @param string $redirectUri
      * @param string $code
      * @param PKCE|null $pkce
-     * @return TokenResponse
+     * @return Token
      */
     public function createToken(
         string $tokenUri,
@@ -56,7 +57,7 @@ class AuthClient extends ApiClient
         string $redirectUri,
         string $code,
         PKCE|null $pkce = null
-    ): TokenResponse {
+    ): Token {
         return $this->invoke(new TokenHandler(new TokenRequest(
             tokenUri: $tokenUri,
             grantType: 'authorization_code',
@@ -74,14 +75,14 @@ class AuthClient extends ApiClient
      * @param string $clientId
      * @param string $clientSecret
      * @param string $refreshToken
-     * @return TokenResponse
+     * @return Token
      */
     public function refreshToken(
         string $tokenUri,
         string $clientId,
         string $clientSecret,
         string $refreshToken
-    ): TokenResponse {
+    ): Token {
         return $this->invoke(new TokenHandler(new TokenRequest(
             tokenUri: $tokenUri,
             grantType: 'refresh_token',

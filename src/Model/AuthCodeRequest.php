@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Gadget\Oauth\Model;
 
-class AuthRequest
+class AuthCodeRequest
 {
     /** @var string $state */
     public string $state;

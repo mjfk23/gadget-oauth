@@ -23,6 +23,7 @@ class AuthClient extends ApiClient
     public function __construct(
         Client $client,
         private string|null $authUri = null,
+        private string|null $tokenUri = null,
         private string|null $clientId = null,
         private string|null $clientSecret = null,
         private string|null $scope = null,

@@ -5,7 +5,3 @@ services:
 
   Gadget\Oauth\:
     resource: '../../../src/'
-    exclude:
-      - '../../../src/DependencyInjection/'
-      - '../../../src/Entity/'
-      - '../../../src/Kernel.php'

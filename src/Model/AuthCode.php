@@ -39,16 +39,20 @@ class AuthCode
         if (!str_starts_with($redirectUri, $authRequest->redirectUri)) {
             throw new AuthException([
                 "Redirect URI mismatch: Expected => %s, Actual => %s",
-                $authRequest->redirectUri,
-                $redirectUri
+                [
+                    $authRequest->redirectUri,
+                    $redirectUri
+                ]
             ]);
         }
 
         if ($state !== $authRequest->state) {
             throw new AuthException([
                 "State mismatch: Expected => %s, Actual => %s",
-                $authRequest->state,
-                $state
+                [
+                    $authRequest->state,
+                    $state ?? 'NULL'
+                ]
             ]);
         }
 

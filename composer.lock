@@ -560,16 +560,16 @@
         },
         {
             "name": "mjfk23/gadget-http",
-            "version": "v2.0.0",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mjfk23/gadget-http.git",
-                "reference": "b96d80c7c91e951e841eaabbef0ae9ee7921c14c"
+                "reference": "b77ac5cf09ee5149ba13b477bbcee6bfc56eddaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mjfk23/gadget-http/zipball/b96d80c7c91e951e841eaabbef0ae9ee7921c14c",
-                "reference": "b96d80c7c91e951e841eaabbef0ae9ee7921c14c",
+                "url": "https://api.github.com/repos/mjfk23/gadget-http/zipball/b77ac5cf09ee5149ba13b477bbcee6bfc56eddaf",
+                "reference": "b77ac5cf09ee5149ba13b477bbcee6bfc56eddaf",
                 "shasum": ""
             },
             "require": {
@@ -615,7 +615,7 @@
                 "source": "https://github.com/mjfk23/gadget-http",
                 "wiki": "https://github.com/mjfk23/gadget-http/wiki"
             },
-            "time": "2024-12-03T16:10:57+00:00"
+            "time": "2024-12-06T19:39:11+00:00"
         },
         {
             "name": "mjfk23/psr-http-contracts",
